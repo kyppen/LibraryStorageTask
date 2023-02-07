@@ -10,6 +10,7 @@ public class MainMenu {
     public static void Menu(){
         mainMenuRunning = true;
         BookDB.fromDB();
+        MovieDB.fromDB();
         printMenu();
         while (mainMenuRunning){
             String input = sc.nextLine();
@@ -24,7 +25,7 @@ public class MainMenu {
                     break;
                 case "2":
                     System.out.println("Movie menu selected");
-                    System.out.println("unfinished");
+                    MovieMenu.MovieMenu();
                     break;
                 case "3":
                     System.out.println("Game menu selected");
