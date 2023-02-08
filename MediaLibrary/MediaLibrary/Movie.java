@@ -1,5 +1,6 @@
+package MediaLibrary;
+
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Movie extends Media {
     public static ArrayList<Movie> listOfMovies = new ArrayList<>();
@@ -35,14 +36,13 @@ public class Movie extends Media {
     }
 
     public static void printAll() {
-        MovieDB.writeMoviesToDB();
         for (Movie i : listOfMovies) {
             System.out.println(i);
         }
     }
     public static void addMovieToList(String id, String title, String director, String length, String genre){
-        Movie.listOfMovies.add(new Movie(title, director, length, genre));
-        Movie.listOfMovies.get(Movie.listOfMovies.size() - 1).setId(id);
+        listOfMovies.add(new Movie(title, director, length, genre));
+        listOfMovies.get(listOfMovies.size() - 1).setId(id);
     }
 
     public static ArrayList searchByGenre(String inputgenre){

@@ -1,5 +1,6 @@
+import MediaLibrary.*;
 
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainMenu {
@@ -33,15 +34,15 @@ public class MainMenu {
                     break;
                 case "4":
                     System.out.println("Search title");
-                    System.out.println("unfinished");
+                    generalSearchByTitle(sc.nextLine());
                     break;
                 case "5":
                     System.out.println("search author/producer/story writer");
-                    System.out.println("unfinished");
+                    generalSearchByPerson(sc.nextLine());
                     break;
                 case "6":
                     System.out.println("Search genre");
-                    System.out.println("unfinished");
+                    generalSearchByGenre(sc.nextLine());
                     break;
                 case "9":
                     System.out.println("Exiting");
@@ -63,4 +64,40 @@ public class MainMenu {
         System.out.println("9: Exit");
     }
 
+    public static void generalSearchByTitle(String titleInput){
+        ArrayList<Book> bookList = Book.searchByTitle(titleInput);
+        for (Book i : bookList) {
+            System.out.println(i);
+        }
+        ArrayList<Movie> movieList = Movie.searchByTitle(titleInput);
+        for (Movie i : movieList) {
+            System.out.println(i);
+        }
+        // ADD GAME HERE
+    }
+
+    public static void generalSearchByPerson(String personInput){
+        ArrayList<Book> bookList = Book.searchByAuthor(personInput);
+        for (Book i : bookList) {
+            System.out.println(i);
+        }
+        ArrayList<Movie> movieList = Movie.searchByDirector(personInput);
+        for (Movie i : movieList) {
+            System.out.println(i);
+        }
+        // ADD GAME HERE
+    }
+
+    public static void generalSearchByGenre(String genreInput){
+        ArrayList<Book> bookList = Book.searchByGenre(genreInput);
+        for (Book i : bookList) {
+            System.out.println(i);
+        }
+        ArrayList<Movie> movieList = Movie.searchByGenre(genreInput);
+        System.out.println(movieList.size());
+        for (Movie i : movieList) {
+            System.out.println(i);
+        }
+        // ADD GAME HERE LATER
+    }
 }

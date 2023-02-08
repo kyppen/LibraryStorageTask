@@ -1,4 +1,6 @@
+package MediaLibrary;
 
+import DatabaseConnection.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,6 +37,7 @@ public class BookDB {
     }
 
     public static void addBookToDB(String title, String author, String pagecount, String genre){
+        BookDB.writeBooksToDB();
         try(Connection con = ConnectDB.getConnection()){
             PreparedStatement stat = con.prepareStatement("INSERT INTO books(title, author, pagecount, genre)" +
                     "VALUES (?, ?, ?, ?)");

@@ -1,3 +1,6 @@
+package MediaLibrary;
+
+import DatabaseConnection.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,6 +34,7 @@ public class MovieDB {
         }
     }
     public static void addMovieToDB(String title, String director, String length, String genre){
+        MovieDB.writeMoviesToDB();
         try(Connection con = ConnectDB.getConnection()){
             PreparedStatement stat = con.prepareStatement("INSERT INTO movies(title, director, length, genre)" +
                     "VALUES (?, ?, ?, ?)");

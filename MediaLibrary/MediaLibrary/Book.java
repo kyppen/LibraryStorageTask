@@ -1,3 +1,4 @@
+package MediaLibrary;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -36,10 +37,8 @@ public class Book extends Media {
     }
 
     public static void printAll(){
-        BookDB.writeBooksToDB();
-        System.out.println("PrintAll activated");
-
         for (Book i : listOfBooks) {
+            System.out.println(listOfBooks.size());
             System.out.println(i);
         }
     }
