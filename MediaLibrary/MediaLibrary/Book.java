@@ -38,7 +38,6 @@ public class Book extends Media {
 
     public static void printAll(){
         for (Book i : listOfBooks) {
-            System.out.println(listOfBooks.size());
             System.out.println(i);
         }
     }

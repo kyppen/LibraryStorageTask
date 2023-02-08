@@ -47,6 +47,7 @@ public class MovieDB {
         }catch (Exception e){
             e.printStackTrace();
         }
+        fromDB();
     }
     public static void removeMovieDB(Movie movie){
 
@@ -56,7 +57,6 @@ public class MovieDB {
             stmt.setLong(1, idLong);
             System.out.println(movie + " has been removed from the DB");
             stmt.executeUpdate();
-
 
         }catch(Exception e){
             e.printStackTrace();

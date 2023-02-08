@@ -11,7 +11,11 @@ public class MainMenu {
     public static void Menu(){
         mainMenuRunning = true;
         BookDB.fromDB();
+        System.out.println(Book.listOfBooks.size() + " Books has been added from DB");
         MovieDB.fromDB();
+        System.out.println(Movie.listOfMovies.size() +  " Movies has been added from DB");
+        GameDB.fromDB();
+        System.out.println((Game.listOfGames.size() + " Games has been added from DB"));
         printMenu();
         while (mainMenuRunning){
             String input = sc.nextLine();
@@ -30,7 +34,7 @@ public class MainMenu {
                     break;
                 case "3":
                     System.out.println("Game menu selected");
-                    System.out.println("unfinished");
+                    GameMenu.gameMenu();
                     break;
                 case "4":
                     System.out.println("Search title");
@@ -67,37 +71,47 @@ public class MainMenu {
     public static void generalSearchByTitle(String titleInput){
         ArrayList<Book> bookList = Book.searchByTitle(titleInput);
         for (Book i : bookList) {
-            System.out.println(i);
+            System.out.println("Book: " + i);
         }
         ArrayList<Movie> movieList = Movie.searchByTitle(titleInput);
         for (Movie i : movieList) {
-            System.out.println(i);
+            System.out.println("Movie: " + i);
         }
-        // ADD GAME HERE
+        ArrayList<Game> gameList = Game.searchByTitle(titleInput);
+        for (Game i : gameList){
+            System.out.println("Game: " + i);
+        }
     }
 
     public static void generalSearchByPerson(String personInput){
         ArrayList<Book> bookList = Book.searchByAuthor(personInput);
         for (Book i : bookList) {
-            System.out.println(i);
+            System.out.println("Book: " + i);
         }
         ArrayList<Movie> movieList = Movie.searchByDirector(personInput);
         for (Movie i : movieList) {
-            System.out.println(i);
+            System.out.println("Movie: " + i);
         }
-        // ADD GAME HERE
-    }
+        ArrayList<Game> gameList = Game.searchByStoryWriter(personInput);
+            for (Game i : gameList){
+                System.out.println("Game: " + i);
+            }
+        }
+
 
     public static void generalSearchByGenre(String genreInput){
         ArrayList<Book> bookList = Book.searchByGenre(genreInput);
         for (Book i : bookList) {
-            System.out.println(i);
+            System.out.println("Book: " + i);
         }
         ArrayList<Movie> movieList = Movie.searchByGenre(genreInput);
-        System.out.println(movieList.size());
         for (Movie i : movieList) {
-            System.out.println(i);
+            System.out.println("Movie: " + i);
         }
-        // ADD GAME HERE LATER
+        ArrayList<Game> gameList = Game.searchByGenre(genreInput);
+        for (Game i : gameList) {
+            System.out.println("Game: " + i);
+        }
     }
+
 }

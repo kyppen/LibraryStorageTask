@@ -49,6 +49,7 @@ public class BookDB {
         }catch (Exception e){
             e.printStackTrace();
         }
+        fromDB();
     }
 
     public static void removeBookDB(Book book){

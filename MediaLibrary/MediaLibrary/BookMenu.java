@@ -78,7 +78,7 @@ public class BookMenu {
         System.out.println("5: Find a Book based on author");
         System.out.println("6: Find a book based on title");
         System.out.println("7: Remove a Book");
-        System.out.println("8: Exit Books");
+        System.out.println("9: Exit Books");
     }
 
 
